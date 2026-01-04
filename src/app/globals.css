@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  /* Define the font variable */
+  --font-clash: 'Clash Display', sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Map Tailwind's default sans to Clash Display */
+  --font-sans: var(--font-clash);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* Apply the font globally */
+  font-family: var(--font-clash);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .gemini-blue-glow {
+    color: #3b82f6 !important; 
+    text-shadow: 
+      0 0 10px rgba(59, 130, 246, 0.9),
+      0 0 20px rgba(59, 130, 246, 0.4),
+      0 0 30px rgba(59, 130, 246, 0.2);
+    filter: brightness(1.2);
+    -webkit-text-fill-color: #3b82f6; 
+  }
+}
